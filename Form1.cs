@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,15 +21,25 @@ namespace İB_Stok_Takip
         SqlConnection baglanti;
         SqlCommand komut;
         SqlDataAdapter da;
+	
+		
 
-        public Form1()
+		
+
+		public Form1()
         {
             InitializeComponent();
         }
 
+
+              
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            timer1.Start();
+			
+
+
+			timer1.Start();
             string baglantiDizesi = "Data Source=stok.db;Version=3;";
             try
             {
@@ -70,11 +81,18 @@ namespace İB_Stok_Takip
         {
 
         }
-
-        private void btnUrunDuzenle_Click(object sender, EventArgs e)
+        
+       
+		private void btnUrunDuzenle_Click(object sender, EventArgs e)
         {
-            Form FormÜrünDüzenle= new FormÜrünDüzenle();
-            FormÜrünDüzenle.ShowDialog();
+			KatogoriEkle Kat_Ekranı = new KatogoriEkle(); 
+			FormÜrünDüzenle FormÜrünDüzenle = new FormÜrünDüzenle();
+
+			FormÜrünDüzenle.PreviousForm = this;//arka plana atılan forma ulaşmak için eklendi	
+            
+			this.Hide();//Form arka sayfada da çalışması için
+            FormÜrünDüzenle.ShowDialog();           
+
         }
 
         private void btnUrunListele_Click(object sender, EventArgs e)
