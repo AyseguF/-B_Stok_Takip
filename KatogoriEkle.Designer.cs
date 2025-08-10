@@ -31,8 +31,8 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KatogoriEkle));
 			this.label1 = new System.Windows.Forms.Label();
 			this.Y_K = new System.Windows.Forms.TextBox();
-			this.button1 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.button_Ekle = new System.Windows.Forms.Button();
+			this.button_Ana = new System.Windows.Forms.Button();
 			this.Geri_D = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
@@ -53,26 +53,26 @@
 			this.Y_K.Size = new System.Drawing.Size(96, 22);
 			this.Y_K.TabIndex = 1;
 			// 
-			// button1
+			// button_Ekle
 			// 
-			this.button1.Location = new System.Drawing.Point(179, 169);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(133, 39);
-			this.button1.TabIndex = 2;
-			this.button1.Text = "Ekle";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.button_Ekle.Location = new System.Drawing.Point(179, 169);
+			this.button_Ekle.Name = "button_Ekle";
+			this.button_Ekle.Size = new System.Drawing.Size(133, 39);
+			this.button_Ekle.TabIndex = 2;
+			this.button_Ekle.Text = "Ekle";
+			this.button_Ekle.UseVisualStyleBackColor = true;
+			this.button_Ekle.Click += new System.EventHandler(this.button_Ekle_Click);
 			// 
-			// button2
+			// button_Ana
 			// 
-			this.button2.BackColor = System.Drawing.SystemColors.ButtonFace;
-			this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-			this.button2.Location = new System.Drawing.Point(394, 12);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(75, 54);
-			this.button2.TabIndex = 3;
-			this.button2.UseVisualStyleBackColor = false;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
+			this.button_Ana.BackColor = System.Drawing.SystemColors.ButtonFace;
+			this.button_Ana.Image = ((System.Drawing.Image)(resources.GetObject("button_Ana.Image")));
+			this.button_Ana.Location = new System.Drawing.Point(394, 12);
+			this.button_Ana.Name = "button_Ana";
+			this.button_Ana.Size = new System.Drawing.Size(75, 54);
+			this.button_Ana.TabIndex = 3;
+			this.button_Ana.UseVisualStyleBackColor = false;
+			this.button_Ana.Click += new System.EventHandler(this.button_Ana_Click);
 			// 
 			// Geri_D
 			// 
@@ -91,8 +91,8 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(481, 282);
 			this.Controls.Add(this.Geri_D);
-			this.Controls.Add(this.button2);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.button_Ana);
+			this.Controls.Add(this.button_Ekle);
 			this.Controls.Add(this.Y_K);
 			this.Controls.Add(this.label1);
 			this.Name = "KatogoriEkle";
@@ -108,8 +108,8 @@
 
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox Y_K;
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button button_Ekle;
+		private System.Windows.Forms.Button button_Ana;
 		private System.Windows.Forms.Button Geri_D;
 	}
 }

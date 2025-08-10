@@ -18,52 +18,63 @@ namespace İB_Stok_Takip
 {
     public partial class Form1 : Form
     {
-        SqlConnection baglanti;
+      // SqlConnection baglanti;
         SqlCommand komut;
         SqlDataAdapter da;
-	
-		
 
 		
+
+
 
 		public Form1()
         {
             InitializeComponent();
         }
 
+		DataTable dt = new DataTable();
+		static string baglantiDizesi = "Data Source=stok.db;Version=3;";
+		// SQLiteConnection baglanti;
 
-              
+		public void Listele()
+		{
 
-        private void Form1_Load(object sender, EventArgs e)
+			try
+			{
+				using (var baglanti = new SQLiteConnection(baglantiDizesi))
+				{
+
+					baglanti.Open();
+					string sql = "SELECT * FROM urun_tablo";
+					using (SQLiteCommand komut = new SQLiteCommand(sql, baglanti))
+					{
+						using (SQLiteDataAdapter adaptor = new SQLiteDataAdapter(komut))
+						{
+							dt.Clear();//eski veriler silinsin
+							adaptor.Fill(dt);
+							dataGridView1.DataSource = dt;
+						}
+					}
+				}
+
+			}
+
+			catch (Exception ex)
+			{
+				MessageBox.Show("Veri Tabanına Bağlanılamadı:" + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+
+
+
+		private void Form1_Load(object sender, EventArgs e)
         {
+
 			
-
-
+			Listele();
+          
 			timer1.Start();
-            string baglantiDizesi = "Data Source=stok.db;Version=3;";
-            try
-            {
-                using (SQLiteConnection baglanti = new SQLiteConnection(baglantiDizesi))
-                {
-                    baglanti.Open();
-                    // SQL Sorgusu
-                    string sql = "SELECT * FROM urun_tablo"; 
-                    using (SQLiteCommand komut = new SQLiteCommand(sql, baglanti))
-                    {
-                        // Verileri DataTable'a yükle
-                        using (SQLiteDataAdapter adaptor = new SQLiteDataAdapter(komut))
-                        {
-                            DataTable dt = new DataTable();
-                            adaptor.Fill(dt);
-                            dataGridView1.DataSource = dt;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Veritabanına Bağlanılamadı: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -89,9 +100,11 @@ namespace İB_Stok_Takip
 			FormÜrünDüzenle FormÜrünDüzenle = new FormÜrünDüzenle();
 
 			FormÜrünDüzenle.PreviousForm = this;//arka plana atılan forma ulaşmak için eklendi	
-            
+			
+
 			this.Hide();//Form arka sayfada da çalışması için
-            FormÜrünDüzenle.ShowDialog();           
+            FormÜrünDüzenle.ShowDialog();
+            Listele();
 
         }
 
@@ -183,5 +196,5 @@ namespace İB_Stok_Takip
                 printDocument.Print();
             }
         }
-    }
+	}
 }

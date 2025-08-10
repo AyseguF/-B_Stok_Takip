@@ -21,13 +21,13 @@ namespace İB_Stok_Takip
 			InitializeComponent();
 		}
 
-		private void button1_Click(object sender, EventArgs e)// ekle butonunun ismi değiştirilemedi o yüzden böyle kaldı. daha sonra tekrar denenecek
+		private void button_Ekle_Click(object sender, EventArgs e)// ekle butonunun ismi değiştirilemedi o yüzden böyle kaldı. daha sonra tekrar denenecek
 		{
 			Kat_Ek = Y_K.Text; //textbox değer alma
 			//FormÜrünDüzenle düz = new FormÜrünDüzenle();//düzenleme formu için nesne oluşturma
 			if (Kat_Ek != "")
 			{
-				Baglan.comboBox1Referance.Items.Add(Kat_Ek);//düzenleme formundaki combobax'a değer girme
+				Baglan.comboBox1Referance.Items.Insert(0,Kat_Ek);//düzenleme formundaki combobax'a değer girme
 				this.Close();
 				PreviousForm.Show();
 				
@@ -43,7 +43,7 @@ namespace İB_Stok_Takip
 		}
 		
 		
-		private void button2_Click(object sender, EventArgs e)//Ana menü butonu
+		private void button_Ana_Click(object sender, EventArgs e)//Ana menü butonu
 		{
 			Form1 ana = new Form1();
 			ana.ShowDialog();
@@ -54,8 +54,7 @@ namespace İB_Stok_Takip
 
 		private void Geri_D_Click(object sender, EventArgs e)
 		{
-			FormÜrünDüzenle hata =new FormÜrünDüzenle();
-			hata.Geri_Don_Hata = "Hata~";//Daha sonra bakılacak
+			
 			PreviousForm.Show();
 			this.Close();
 

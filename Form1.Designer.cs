@@ -99,6 +99,7 @@
 			// 
 			// dataGridView1
 			// 
+			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Location = new System.Drawing.Point(12, 114);
@@ -107,6 +108,7 @@
 			this.dataGridView1.RowTemplate.Height = 24;
 			this.dataGridView1.Size = new System.Drawing.Size(980, 595);
 			this.dataGridView1.TabIndex = 4;
+		//	this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 			// 
 			// btnUrunEkle
 			// 
